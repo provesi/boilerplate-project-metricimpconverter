@@ -2,18 +2,37 @@ function ConvertHandler() {
   
   this.getNum = function(input) {
     let result;
+    let index;
     
-    return result;
+    index = /[a-z]/i.exec(input).index;
+    result = input.split(input.charAt(index));
+    
+    return result[0];
   };
   
   this.getUnit = function(input) {
     let result;
+    let index;
+    
+    index = /[a-z]/i.exec(input).index;
+    result = input.slice(index, input.length);
     
     return result;
   };
   
   this.getReturnUnit = function(initUnit) {
+    const conversions = {
+      gal: 'L',
+      L: 'gal',
+      mi: 'km',
+      km: 'mi',
+      lbs: 'kg',
+      kg: 'lbs'
+    }
+    
     let result;
+    
+    result = conversions[initUnit]; 
     
     return result;
   };
